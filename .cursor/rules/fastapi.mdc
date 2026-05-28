@@ -1,0 +1,17 @@
+---
+globs: /backend
+alwaysApply: false
+---
+
+Proje Adı: Son Çağrı
+Klasör: backend
+Dil: Python 3.10+, FastAPI
+
+Kurallar:
+1. Tüm backend kodlarını sadece root içerisindeki "./backend/" klasörü altına yaz.
+2. Tüm API rotalarının başına otomatik olarak "/api/v1" ön ekini koy.
+3. Veri tabanı işlemleri için sadece resmi `supabase-py` kütüphanesini kullan.
+4. Giriş/Kayıt gerektiren özel uç noktalarda JWT (Bearer Token) doğrulamasını zorunlu tut. Kullanıcı ID'sini asla request gövdesinden (body) alma, token içinden çöz.
+5. API yanıtlarını her zaman katı Pydantic şemaları ile kontrol et ve doğrula.
+6. Gemini API çağrılarında her zaman `response_mime_type="application/json"` parametresini zorunlu kıl ve gelen yanıtı `LLMRecipeSchema` ile kontrol et.
+7. Tüm kod açıklamalarını ve yorumlarını Türkçe yap.

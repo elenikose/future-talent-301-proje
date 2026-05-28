@@ -1,0 +1,15 @@
+---
+globs: /frontend
+alwaysApply: false
+---
+
+Proje Adı: Son Çağrı
+Klasör: frontend
+Dil: React, Vite, JavaScript
+
+Kurallar:
+1. Tüm frontend kodlarını sadece root içerisindeki "./frontend/" klasörü altına yaz.
+2. Malzeme arama çubuğu (`POST /api/v1/pantry/search`) için kod üretirken her harf girişinde API'ye istek atmaması için mutlaka 300ms Debounce mekanizması ekle.
+3. Gemini API'nin aşırı istek hatası (429 Rate Limit) vermesini önlemek için "Tarif Üret" butonuna basıldıktan sonra ön yüzde butona 10 saniyelik bir tıklama kilidi (throttling) koy.
+4. Render.com ücretsiz sunucusunun uyku modunu (cold start) çözmek için uygulama ilk açıldığında arka planda asenkron olarak `/api/v1/health` uç noktasına istek at. Sunucu uyanana kadar kullanıcı arayüzündeki butonları kilitle ve ekranda bir yükleme/skeleton ekranı göster.
+5. Bileşenleri (components) temiz yaz ve tüm kod yorumlarını Türkçe yap.

@@ -1,0 +1,33 @@
+---
+description: tasarım sistemi — tüm UI işlerinde zorunlu
+alwaysApply: true
+---
+
+# Design System 
+**Kaynak:** Proje kökündeki `design-system.md` tek doğruluk kaynağıdır. UI, stil, bileşen veya ekran eklerken/değiştirirken önce bu dosyayı oku ve ona uy.
+
+## Zorunlu kurallar
+
+- *"Dolaptakileri değerlendir."*
+- **Ton:** Sıcak, teşvik edici; "atık" değil "değerlendirme"; karbon tasarrufunu kg CO₂ ile somutlaştır.
+- **Tipografi:** Display/sayılar → Fraunces 600; body → DM Sans 400; label → DM Sans 500 uppercase `letter-spacing: 0.12em`. **700 kullanma.**
+- **Renkler:** Yalnızca palet ve CSS değişkenleri (`--sage`, `--cream`, `--carbon-green`, vb.). Gradient yalnızca Tasarruf Göstergesi kartında. Kategori renkleri: sebze→sage, protein→bark, tahıl→amber.
+- **Spacing & radius:** `--space-*` ve `--radius-*` token'ları; rastgele px değerleri üretme.
+- **Bileşenler:** `design-system.md` §6'daki sınıfları ve varyantları kullan (`btn-primary`, `tag-sage`, `recipe-card`, `carbon-badge`, `nav-bar`, vb.). Yeni buton/kart/tag icat etme; mevcut varyantları genişlet.
+- **İkonlar:** Tabler Icons (`ti ti-*`) — dokümandaki örneklerle uyumlu.
+- **Layout:** Mobile-first (390px baz), breakpoint `768px`. Skeleton/empty state boş bırakılmaz.
+
+## Uygulama
+
+1. Stil yazarken §7 CSS değişkenlerini kopyala veya mevcut global CSS'e bağla; hardcoded hex yerine `var(--*)` tercih et.
+2. Yeni ekranlar §8 akışına uygun olsun (Malzeme → Tarif listesi → Detay → Profil).
+3. Karbon UI için dokümandaki `carbonMap` / `calcCarbonSaved` mantığını ve badge metinlerini kullan.
+
+## Yapılmaması gerekenler
+
+- Bootstrap/Material/shadcn varsayılan paletleri veya generic "green" tonları
+- `font-weight: 700`, sistem fontları, gradient arka planlar (streak kartı hariç)
+- Suçlayıcı dil ("israf ettin" vb.)
+- Design system dışı buton/kart stilleri
+
+Belirsizlikte `design-system.md` içeriğini tekrar oku; çelişki varsa o dosya geçerlidir.
