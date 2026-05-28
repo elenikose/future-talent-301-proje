@@ -1,0 +1,31 @@
+# --- GİZLİ ŞİFRELER VE API ANAHTARLARI ---
+# Yapay zeka (Gemini) anahtarlarını ve veritabanı şifrelerini tutacağın dosya
+.env
+*.env
+.env.local
+
+# --- PYTHON / FASTAPI (BACKEND) GEREKSİZLERİ ---
+# Python'ın arkada çalışırken ürettiği kalabalık dosyalar ve sanal ortamlar
+__pycache__/
+*.py[cod]
+*$py.class
+.venv/
+venv/
+ENV/
+
+# --- ARYÜZ / FLUTTERFLOW / NODE (FRONTEND) GEREKSİZLERİ ---
+# Eğer frontend tarafında yerel paketler yüklenirse bunları engeller
+node_modules/
+/npm-debug.log*
+.pnpm-debug.log*
+
+# --- SİSTEM DOSYALARI ---
+# Bilgisayarın otomatik ürettiği gereksiz loglar
+.DS_Store
+.DS_Store?
+._*
+Thumbs.db
+
+# --- DOCKER VE GELİŞTİRME ARAÇLARI ---
+.story/
+.history/
