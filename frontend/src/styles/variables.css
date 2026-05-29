@@ -1,0 +1,58 @@
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,500;0,9..144,600;1,9..144,300;1,9..144,500&family=DM+Sans:wght@300;400;500&display=swap');
+
+:root {
+  --sage: #5c7a5a;
+  --sage-light: #e8f0e7;
+  --sage-mid: #a8c4a5;
+  --cream: #f7f3ee;
+  --warm-white: #fdfaf6;
+  --bark: #6b4f3a;
+  --bark-light: #ede3dc;
+  --charcoal: #2c2c28;
+  --muted: #7a776f;
+  --carbon-green: #3a6b4a;
+  --carbon-bg: #d4ebd9;
+  --amber: #b87333;
+  --amber-bg: #f5e8d6;
+  --error: #9b4a3a;
+  --error-bg: #f8ebe8;
+
+  --font-display: 'Fraunces', serif;
+  --font-body: 'DM Sans', sans-serif;
+
+  --radius-sm: 8px;
+  --radius-md: 14px;
+  --radius-lg: 22px;
+  --radius-pill: 999px;
+
+  --space-xs: 4px;
+  --space-sm: 8px;
+  --space-md: 12px;
+  --space-lg: 16px;
+  --space-xl: 24px;
+  --space-2xl: 32px;
+
+  --shadow-card: 0 2px 12px rgba(92, 122, 90, 0.1);
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100dvh;
+  font-family: var(--font-body);
+  font-weight: 400;
+  font-size: 15px;
+  line-height: 1.5;
+  color: var(--charcoal);
+  background-color: var(--cream);
+  -webkit-font-smoothing: antialiased;
+}
+
+#root {
+  min-height: 100dvh;
+}
