@@ -29,3 +29,8 @@ Thumbs.db
 # --- DOCKER VE GELİŞTİRME ARAÇLARI ---
 .story/
 .history/
+
+# Son Çağrı - Yerel Çevre Değişkenleri Güvenlik Kilidi
+frontend/.env
+backend/.env
+.env.local

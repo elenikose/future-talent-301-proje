@@ -4,7 +4,7 @@ alwaysApply: true
 ---
 
 # Design System 
-**Kaynak:** Proje kökündeki `design-system.md` tek doğruluk kaynağıdır. UI, stil, bileşen veya ekran eklerken/değiştirirken önce bu dosyayı oku ve ona uy.
+**Kaynak:** `prodocs/design-system.md` tek doğruluk kaynağıdır. Marka adı: **Son Çağrı**. UI, stil, bileşen veya ekran eklerken/değiştirirken önce bu dosyayı oku ve ona uy.
 
 ## Zorunlu kurallar
 

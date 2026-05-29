@@ -71,7 +71,7 @@ flowchart LR
 | Cold start | `hooks/useBackendReady.js` — health başarılı olana kadar skeleton + buton kilidi (react-guide §4.3, PRD TC-004) |
 | README | Kök `README.md`: yerel çalıştırma, env değişkenleri, iki süreç |
 
-**Tasarım notu:** Ürün PRD’de “Son Çağrı”; UI markası design-system’de “leftovers & co.” — ekranlarda design system markası kullanılır.
+**Tasarım notu:** PRD ve design system markası **Son Çağrı** — tüm ekranlarda bu isim kullanılır.
 
 ---
 

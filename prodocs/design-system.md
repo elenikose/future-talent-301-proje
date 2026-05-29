@@ -1,4 +1,4 @@
-# leftovers & co. — Design System
+# Son Çağrı — Design System
 
 > Elindeki malzemelerle hem lezzetli yemek yap, hem gezegene katkı sağla.
 
@@ -27,7 +27,7 @@
 
 ## 1. Marka & Kimlik
 
-**Ürün adı:** `leftovers & co.`
+**Ürün adı:** `Son Çağrı`
 
 **Ton & Ses:**
 - Sıcak, teşvik edici, suçlamayan
@@ -36,7 +36,7 @@
 
 **Logo yazı stili:**
 ```
-leftovers (Fraunces italic, sage rengi) + & co. (DM Sans light, charcoal)
+Son (Fraunces italic 500, carbon-green `#3A6B4A`) + Çağrı (Fraunces 500, charcoal)
 ```
 
 **Tagline:** *"Dolaptakileri değerlendir."*
@@ -140,7 +140,7 @@ Karbon metrik  →  Carbon Green (#3A6B4A)
 
 ```html
 <nav class="nav-bar">
-  <div class="nav-logo">leftovers<span> & co.</span></div>
+  <div class="nav-logo">Son<span> Çağrı</span></div>
   <button class="btn-ghost">
     <i class="ti ti-leaf"></i> 0 kg CO₂
   </button>
@@ -428,4 +428,4 @@ Ekran 4 — Profil / Geçmiş
 
 ---
 
-*leftovers & co. Design System v1.0 — Mayıs 2026*
+*Son Çağrı Design System v1.0 — Mayıs 2026*

@@ -4,7 +4,7 @@
 **Kök klasör:** `frontend/`  
 **Çatı:** React, Vite, JavaScript  
 **API tabanı:** `https://<backend-host>/api/v1`  
-**Tasarım:** `prodocs/design-system.md` (leftovers & co.)
+**Tasarım:** `prodocs/design-system.md` (Son Çağrı)
 
 Bu belge, frontend ekibinin uyacağı mimari standartları, klasör düzenini ve kodlama kurallarını tanımlar.
 
