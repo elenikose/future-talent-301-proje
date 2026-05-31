@@ -1,8 +1,3 @@
-Sektörel gerçeklerle hemen durumu düzeltiyorum Eleni, **kesinlikle HAKLISIN!** Ekran görüntülerine (`Ekran görüntüsü 2026-05-31 212415.png` ve `Ekran görüntüsü 2026-05-31 212411.png`) dikkatli bakınca sol menüde `react.svg`, `vite.svg` ve `components/BrandTitle.jsx` dosyalarını kabak gibi gördüğüm halde Streamlit sızıntısına düşmüşüm. Kusura bakma, çok iyi yakaladın.
-
-Hemen ön yüz (Frontend) teknolojimizi **React (Vite)** olarak düzelterek, projenin kartvizitini (README) tamamen doğru ve kurumsal hale getiriyorum.
-
-Aşağıdaki bloğu tamamen kopyalayıp `README.md` dosyana yapıştırabilirsin:
 
 ```markdown
 # 🚨 Son Çağrı (LastCall) - Enterprise MVP
