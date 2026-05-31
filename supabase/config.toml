@@ -1,0 +1,8 @@
+# Supabase CLI — migration'ları `backend/scripts/apply_migrations.py` veya `npx supabase db push` ile uygular.
+project_id = "future-talent-301-proje"
+
+[db]
+major_version = 15
+
+[db.migrations]
+enabled = true
