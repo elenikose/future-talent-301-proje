@@ -1,0 +1,30 @@
+# Şifreler ve Gizli Dosyalar (En Kritik Kısım)
+.env
+.env.*
+
+# Python Sistem ve Önbellek Dosyaları
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+htmlcov/
+.toast
+.pytest_cache/
+
+# Sanal Ortam (Virtual Environment) Klasörleri
+venv/
+.venv/
+env/
+ENV/
+
+# Editör Ayarları
+.cursor/
+.cursorrules
+.vscode/
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.swp
