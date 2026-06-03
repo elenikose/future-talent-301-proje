@@ -16,10 +16,11 @@ app = FastAPI(
 )
 
 url: str = os.environ.get("SUPABASE_URL", "")
-key: str = os.environ.get("SUPABASE_ANON_KEY", "")
+# Burayı ANON_KEY yerine SERVICE_ROLE_KEY yapıyoruz ki RLS duvarını aşabilsin:
+key: str = os.environ.get("SUPABASE_SERVICE_ROLE_KEY", "")
 
 if not url or not key:
-    raise ValueError("Supabase URL veya Anon Key .env dosyasında bulunamadı!")
+    raise ValueError("Supabase URL veya Service Role Key .env dosyasında bulunamadı!")
 
 db: Client = create_client(url, key)
 
