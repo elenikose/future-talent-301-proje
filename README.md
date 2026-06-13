@@ -1,20 +1,19 @@
-
-```markdown
 # 🚨 Son Çağrı (LastCall) - Enterprise MVP
 
-**Son Çağrı**, evdeki veya restoranlardaki malzemelerin son kullanma tarihlerine odaklanarak, gıda israfını minimuma indirmeyi hedefleyen yapay zeka destekli akıllı bir sürdürülebilirlik ve yemek tarifi optimizasyonu uygulamasıdır.
+**Son Çağrı**, evdeki gıda malzemelerinin son kullanma tarihlerine odaklanarak, gıda israfını minimuma indirmeyi hedefleyen yapay zeka destekli akıllı bir sürdürülebilirlik ve yemek tarifi optimizasyonu uygulamasıdır.
 
 ---
 
 ## 🚀 Teknolojik Altyapı (Tech Stack)
 
 ### Arka Plan (Backend) & Veritabanı
-*   **FastAPI:** Yüksek performanslı, modern ve asenkron Python Web API çatısı.
-*   **Supabase (PostgreSQL):** Gerçek zamanlı veri takibi, kullanıcı envanteri ve malzeme yönetimi.
-*   **Google Gemini API:** Envanterdeki en acil gıda maddelerini analiz ederek kişiselleştirilmiş, yaratıcı ve israf önleyici Türkçe tarifler üreten yapay zeka motoru.
+* **FastAPI:** Yüksek performanslı, modern ve asenkron Python Web API çatısı.
+* **Supabase (PostgreSQL):** Gerçek zamanlı veri takibi, kullanıcı kimlik doğrulama (Auth) ve RLS (Satır Bazlı Güvenlik) destekli malzeme yönetimi.
+* **Google Gemini API:** Envanterdeki ürünleri ve anlık (ad-hoc) girdileri analiz ederek kişiselleştirilmiş, yaratıcı ve israf önleyici Türkçe tarifler üreten LLM motoru.
 
 ### Ön Yüz (Frontend)
-*   **React & Vite:** Hızlı, modern ve bileşen tabanlı interaktif web arayüzü mimarisi.
+* **React & Vite:** Hızlı, modern ve bileşen tabanlı interaktif web arayüzü mimarisi.
+* **Deterministik CO2 Modeli:** Yapay zeka halüsinasyonlarını engelleyen, ön yüz tabanlı net karbon tasarruf hesaplama algoritması.
 
 ---
 
@@ -22,9 +21,11 @@
 
 ```text
 future-talent-301-proje/
-├── backend/          # FastAPI Sunucusu, API Uçları ve Gemini Entegrasyonu
+├── backend/          # FastAPI Sunucusu, API Rotaları, Servisler ve Gemini Entegrasyonu
 ├── frontend/         # React & Vite Ön Yüz Uygulaması ve Kullanıcı Ekranları
-├── supabase/         # Veritabanı şemaları ve yerel migrasyon takipleri
+├── prodocs/          # Mimari kararlar, QA testleri, PRD ve MVP kapsam dokümanları
+├── .gitignore        # Gereksiz dosyaların repoya girmesini engelleyen kural seti
+├── .env.example      # Gerçek API anahtarları olmadan örnek global çevre değişkenleri şablonu
 └── README.md         # Proje Dokümantasyonu (Şu an buradasınız)
 
 ```
@@ -33,9 +34,9 @@ future-talent-301-proje/
 
 ## 🛠️ Yerel Kurulum ve Çalıştırma (Installation)
 
-Projenin backend ve veritabanı katmanını kendi yerel ortamınızda ayağa kaldırmak için aşağıdaki adımları sırasıyla takip ediniz:
+Projenin hem backend hem de frontend katmanını yerel ortamınızda ayağa kaldırmak için aşağıdaki adımları sırasıyla takip ediniz:
 
-### 1. Depoyu Klonlayın ve Ana Dizine Geçin
+### 1. Depoyu Klonlayın
 
 ```bash
 git clone [https://github.com/elenikose/future-talent-301-proje.git](https://github.com/elenikose/future-talent-301-proje.git)
@@ -43,7 +44,9 @@ cd future-talent-301-proje
 
 ```
 
-### 2. Backend Ortamını Hazırlayın
+### 2. Backend (FastAPI) Ortamını Hazırlayın
+
+Yeni bir terminal açın ve backend dizinine gidin:
 
 ```bash
 cd backend
@@ -51,29 +54,72 @@ python -m venv venv
 
 ```
 
-* **Windows için aktifleştirme:** `venv\Scripts\activate`
-* **Mac/Linux için aktifleştirme:** `source venv/bin/activate`
+#### 🔑 Sanal Ortamı (Venv) Aktifleştirme:
 
-### 3. Bağımlılıkları Yükleyin
+Kullandığınız işletim sistemine ve terminal türüne uygun olan komutu çalıştırınız:
+
+* **Windows (PowerShell - Önerilen):**
+*Eğer yetki kısıtlama hatası alırsanız önce `Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope Process` komutunu çalıştırın.*
+```powershell
+.\venv\Scripts\activate
+
+```
+
+
+* **Windows (Klasör / CMD):**
+```cmd
+.\venv\Scripts\activate.bat
+
+```
+
+
+* **Mac / Linux (Terminal):**
+```bash
+source venv/bin/activate
+
+```
+
+
+
+#### 📦 Bağımlılıkların Yüklenmesi ve Çalıştırma:
+
+Sanal ortam aktifken bağımlılıkları yükleyin:
 
 ```bash
 pip install -r requirements.txt
 
 ```
 
-### 4. Ortam Değişkenlerini Yapılandırın
+Kök dizindeki `.env.example` dosyasını referans alarak `backend/` klasörü içinde bir `.env` dosyası oluşturun ve içerisindeki `SUPABASE_URL`, `SUPABASE_SERVICE_ROLE_KEY` ve `GOOGLE_API_KEY` alanlarını kendi bağlantı anahtarlarınızla doldurun.
 
-`.env.example` dosyasını `.env` olarak kopyalayın ve içerisindeki `SUPABASE_URL`, `SUPABASE_SERVICE_ROLE_KEY` ve `GEMINI_API_KEY` alanlarını kendi lisans/bağlantı anahtarlarınızla doldurun.
-
-### 5. Backend Sunucusunu Başlatın
+Backend sunucusunu başlatın (Kök dizinden app modülünü çağırarak):
 
 ```bash
-python main.py
+uvicorn app.main:app --reload
 
 ```
 
-Sunucu ayağa kalktıktan sonra API dökümantasyonuna ve test ekranına **`http://127.0.0.1:8080/docs`** (Swagger UI) adresinden erişebilirsiniz.
+*API dökümantasyonuna ve test ekranına **`http://127.0.0.1:8000/docs`** (Swagger UI) adresinden erişebilirsiniz.*
+
+---
+
+### 3. Frontend (React) Ortamını Hazırlayın
+
+Farklı bir terminal sekmesi açın ve frontend dizinine gidin:
+
+```bash
+cd frontend
+npm install
 
 ```
+
+Kök dizindeki `.env.example` dosyasını referans alarak `frontend/` klasörü içinde bir `.env` dosyası oluşturun, gerekli ortam değişkenlerini (`VITE_API_BASE_URL`, `VITE_SUPABASE_URL` ve `VITE_SUPABASE_ANON_KEY`) yapılandırdıktan sonra ön yüzü ayağa kaldırın:
+
+```bash
+npm run dev
+
+```
+
+*Uygulama arayüzüne **`http://localhost:5173`** adresinden erişerek test işlemlerine başlayabilirsiniz.*
 
 ```
