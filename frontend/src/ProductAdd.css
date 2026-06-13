@@ -1,71 +1,30 @@
-.product-page {
-  min-height: 100dvh;
-  padding: var(--space-xl) var(--space-lg) var(--space-2xl);
-}
+.dashboard-container { max-width: 500px; margin: 0 auto; padding: 20px; background: #f8fafc; min-height: 100vh; }
+.brand-header { text-align: center; margin: 40px 0; }
+.brand-title { font-size: 2.5rem; color: #1e293b; }
+.brand-green { color: #10b981 !important; font-weight: 800; }
+.co2-badge { background: #d1fae5; color: #065f46; padding: 8px 15px; border-radius: 20px; font-weight: 600; display: inline-block; margin-top: 10px; }
+.dashboard-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; }
+.card { background: white; padding: 20px; border-radius: 20px; text-align: center; cursor: pointer; border: 1px solid #e2e8f0; }
+.card:hover { border-color: #10b981; }
+.card-logout { background: #fee2e2; color: #991b1b; padding: 20px; border-radius: 20px; text-align: center; cursor: pointer; font-weight: bold; grid-column: span 2; }
+.modal-overlay { position: fixed; top:0; left:0; width:100%; height:100%; background: rgba(0,0,0,0.5); display: flex; align-items: center; justify-content: center; z-index: 1000; }
+.modal-content { background: white; width: 90%; max-width: 500px; padding: 30px; border-radius: 25px; min-height: 350px; max-height: 85vh; overflow-y: auto; display: flex; flex-direction: column; }
+.modal-inner-content { flex: 1; display: flex; flex-direction: column; gap: 15px; }
+.close-btn { align-self: flex-end; background: #f1f5f9; border: none; padding: 8px 15px; border-radius: 10px; cursor: pointer; }
+.premium-input { width: 100%; padding: 12px; border-radius: 12px; border: 1px solid #e2e8f0; }
+.submit-btn { width: 100%; padding: 12px; background: #10b981; color: white; border: none; border-radius: 12px; font-weight: bold; cursor: pointer; }
+.list-container { max-height: 200px; overflow-y: auto; border: 1px solid #e2e8f0; padding: 10px; border-radius: 12px; }
+.product-item { display: flex; align-items: center; padding: 10px; background: #f8fafc; border-radius: 10px; margin-bottom: 5px; justify-content: space-between; }
+.recipe-result { margin-top: 10px; padding: 15px; background: #f0fdf4; border-radius: 10px; color: #166534; font-size: 0.9rem; }
+.history-card { padding: 15px; background: #f8fafc; border-radius: 12px; border: 1px solid #e2e8f0; margin-bottom: 10px; cursor: pointer; }
+.co2-tag { background: #d1fae5; padding: 4px 8px; border-radius: 8px; font-weight: bold; color: #065f46; font-size: 0.8rem; }
+.flashcard { background: white; border: 2px solid #10b981; padding: 20px; border-radius: 15px; margin-bottom: 10px; cursor: pointer; box-shadow: 0 4px 6px rgba(0,0,0,0.1); font-weight: bold; }
+.recipe-content { font-size: 0.9rem; line-height: 1.5; margin: 15px 0; max-height: 300px; overflow-y: auto; }
+.basics-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 15px; }
+.flashcard-mini { background: #f1f5f9; padding: 15px; border-radius: 12px; text-align: center; font-weight: bold; border: 1px solid #e2e8f0; }
 
-.product-header {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: var(--space-md);
-  max-width: 390px;
-  margin: 0 auto var(--space-xl);
-}
-
-.product-header .app-brand {
-  margin-bottom: 0;
-}
-
-.product-logout {
-  align-self: flex-end;
-}
-
-.product-card {
-  width: 100%;
-  max-width: 390px;
-  margin: 0 auto;
-  padding: var(--space-2xl) var(--space-xl);
-  background-color: var(--warm-white);
-  border-radius: var(--radius-lg);
-  box-shadow: var(--shadow-card);
-}
-
-.product-list {
-  margin-top: var(--space-2xl);
-  padding-top: var(--space-xl);
-  border-top: 1px solid var(--sage-light);
-}
-
-.product-list-items {
-  margin: 0;
-  padding: 0;
-  list-style: none;
-  display: flex;
-  flex-direction: column;
-  gap: var(--space-md);
-}
-
-.product-list-item {
-  display: flex;
-  flex-direction: column;
-  gap: var(--space-xs);
-  padding: var(--space-md) var(--space-lg);
-  background-color: var(--sage-light);
-  border-radius: var(--radius-md);
-}
-
-.product-list-name {
-  font-weight: 500;
-  color: var(--charcoal);
-}
-
-.product-list-date {
-  font-size: 13px;
-  color: var(--muted);
-}
-
-@media (min-width: 768px) {
-  .product-card {
-    padding: var(--space-2xl) 40px;
-  }
-}
+/* Sadece bu Markdown alt stilleri eklendi, üsttekiler elenmedi */
+.recipe-content h1, .recipe-content h2, .recipe-content h3 { color: #065f46; margin-top: 15px; margin-bottom: 8px; border-bottom: 2px solid #d1fae5; padding-bottom: 4px; font-size: 1.1rem; }
+.recipe-content ul, .recipe-content ol { margin: 10px 0 10px 20px; }
+.recipe-content li { margin-bottom: 5px; color: #334155; }
+.recipe-content strong { color: #0f172a; font-weight: 700; }

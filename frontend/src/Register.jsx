@@ -1,20 +1,20 @@
 import { useState } from 'react'
-import { supabase } from './supabaseClient'
-import './Login.css' 
+import { supabase } from './supabaseClient' 
+import './Register.css' 
 
-export default function Login({ onLoginSuccess, onNavigateToRegister }) {
+export default function Register({ onRegisterSuccess, onNavigateToLogin }) {
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
   const [loading, setLoading] = useState(false)
   const [errorMessage, setErrorMessage] = useState('')
 
-  async function handleLogin(e) {
+  async function handleRegister(e) {
     e.preventDefault()
     setLoading(true)
     setErrorMessage('')
 
     try {
-      const { data, error } = await supabase.auth.signInWithPassword({
+      const { data, error } = await supabase.auth.signUp({
         email: email,
         password: password,
       })
@@ -22,25 +22,25 @@ export default function Login({ onLoginSuccess, onNavigateToRegister }) {
       if (error) throw error
 
       if (data?.user) {
-        console.log("Supabase oturumu başarıyla açıldı:", data.user.id);
-        onLoginSuccess(data.user)
+        console.log("Supabase'e gerçek kayıt yapıldı. ID:", data.user.id);
+        onRegisterSuccess(data.user)
       }
     } catch (error) {
-      setErrorMessage("Giriş başarısız. Bilgilerinizi kontrol edin veya kayıt olun.")
+      setErrorMessage(error.message || 'Kayıt esnasında bir hata oluştu.')
     } finally {
       setLoading(false)
     }
   }
 
   return (
-    <div className="login-container">
-      <div className="login-card">
-        <h2 className="login-title">Son Çağrı'ya Giriş Yap 🌍</h2>
-        <p className="login-subtitle">Atıksız mutfak yönetim paneline erişin.</p>
+    <div className="register-container">
+      <div className="register-card">
+        <h2 className="register-title">Son Çağrı'ya Katıl 🌍</h2>
+        <p className="register-subtitle">Hesap oluşturarak verilerinizi bulutta güvenle saklayın.</p>
         
         {errorMessage && <div className="register-error">{errorMessage}</div>}
 
-        <form onSubmit={handleLogin} className="login-form">
+        <form onSubmit={handleRegister} className="register-form">
           <div className="register-input-group">
             <label className="register-label">E-posta Adresi</label>
             <input
@@ -63,17 +63,28 @@ export default function Login({ onLoginSuccess, onNavigateToRegister }) {
               required
               className="register-input"
             />
+            {/* Sektör Standardı UX Düzeltmesi: Şifre kısıtlaması inputun hemen altına eklendi */}
+            <p style={{
+              fontSize: '0.75rem', 
+              color: '#64748b', 
+              marginTop: '6px', 
+              textAlign: 'left',
+              width: '100%',
+              paddingLeft: '4px'
+            }}>
+              * Güvenliğiniz için şifreniz en az 6 karakterden oluşmalıdır.
+            </p>
           </div>
 
           <button type="submit" disabled={loading} className="register-button">
-            {loading ? 'Giriş Yapılıyor...' : 'Giriş Yap'}
+            {loading ? 'Hesap Oluşturuluyor...' : 'Kayıt Ol'}
           </button>
         </form>
 
-        <p className="login-footer-text">
-          Henüz hesabınız yok mu?{' '}
-          <span onClick={onNavigateToRegister} className="register-link" style={{ cursor: 'pointer', color: '#10b981', textDecoration: 'underline' }}>
-            Kayıt Ol
+        <p className="register-footer-text">
+          Zaten hesabınız var mı?{' '}
+          <span onClick={onNavigateToLogin} className="register-link">
+            Giriş Yap
           </span>
         </p>
       </div>

@@ -1,72 +1,101 @@
-@import './styles/forms.css';
-
-.login-page {
+/* Vite'ın tüm boşluklarını ezip tam ekranı kaplayan merkezleme motoru */
+.login-container {
   display: flex;
-  flex-direction: column;
-  align-items: center;
   justify-content: center;
-  min-height: 100dvh;
-  padding: var(--space-xl) var(--space-lg);
-}
-
-.login-card {
-  width: 100%;
-  max-width: 390px;
-  padding: var(--space-2xl) var(--space-xl);
-  background-color: var(--warm-white);
-  border-radius: var(--radius-lg);
-  box-shadow: var(--shadow-card);
-}
-
-.login-card .app-tagline {
-  margin-bottom: var(--space-2xl);
-}
-
-.login-heading {
-  margin: 0 0 var(--space-xl);
-  font-family: var(--font-body);
-  font-size: 12px;
-  font-weight: 500;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  color: var(--muted);
-  text-align: center;
-}
-
-.auth-alert {
+  align-items: center;
+  min-height: 100vh;
+  width: 100vw;
+  background-color: #f8fafc;
+  position: fixed; 
+  top: 0;
+  left: 0;
   margin: 0;
-  padding: var(--space-md) var(--space-lg);
-  font-size: 14px;
-  color: var(--error);
-  background-color: var(--error-bg);
-  border-radius: var(--radius-md);
+  padding: 0;
 }
 
-.login-footer {
+/* Formun içine oturduğu gölgeli modern kart */
+.login-card {
+  background: white;
+  padding: 2.5rem;
+  border-radius: 12px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+  width: 100%;
+  max-width: 400px;
+  text-align: center;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  gap: var(--space-md);
-  margin-top: var(--space-xl);
-  padding-top: var(--space-xl);
-  border-top: 1px solid var(--sage-light);
+  gap: 1rem;
 }
 
-.auth-link {
-  font-size: 14px;
-  font-weight: 400;
-  color: var(--sage);
-  text-decoration: none;
-  transition: color 0.15s ease;
+.login-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
 }
 
-.auth-link:hover {
-  color: var(--carbon-green);
-  text-decoration: underline;
+.login-input-group {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  gap: 0.5rem;
 }
 
-@media (min-width: 768px) {
-  .login-card {
-    padding: var(--space-2xl) 40px;
-  }
+.login-label {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #374151;
+}
+
+.login-input {
+  padding: 0.8rem;
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
+  font-size: 1rem;
+  transition: border-color 0.2s;
+}
+
+.login-input:focus {
+  outline: none;
+  border-color: #10b981; 
+}
+
+.register-button {
+  background-color: #10b981;
+  color: white;
+  padding: 0.8rem;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.2s;
+  margin-top: 1rem;
+  width: 100%;
+}
+
+.register-button:hover:not(:disabled) {
+  background-color: #059669;
+}
+
+.register-button:disabled {
+  background-color: #9ca3af;
+  cursor: not-allowed;
+}
+
+.login-title {
+  margin: 0;
+  color: #111827;
+  font-size: 1.5rem;
+}
+
+.login-subtitle {
+  color: #6b7280;
+  margin-bottom: 0.5rem;
+  font-size: 0.95rem;
+}
+
+.login-footer-text {
+  margin-top: 1rem;
+  font-size: 0.9rem;
+  color: #4b5563;
 }
