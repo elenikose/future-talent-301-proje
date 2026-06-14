@@ -38,3 +38,6 @@ app.include_router(api_v1_router, prefix="/api/v1")
 @app.get("/")
 def read_root():
     return {"message": "Son Çağrı API tıkır tıkır çalışıyor!"}
+@app.get("/", methods=["GET", "HEAD"])
+def read_root():
+    return {"message": "Son Çağrı API tıkır tıkır çalışıyor!"}
