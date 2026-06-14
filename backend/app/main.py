@@ -19,6 +19,7 @@ origins = [
     "http://localhost:3000",
     "http://localhost:5173",  # Vite/React varsayılan portu
     "http://127.0.0.1:5173",
+    "https://soncagri.vercel.app"
 ]
 
 app.add_middleware(
