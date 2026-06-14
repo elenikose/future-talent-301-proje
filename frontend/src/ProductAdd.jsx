@@ -72,6 +72,11 @@ export default function ProductAdd({ onLogout }) {
   }
 
   async function handleSaveRecipe() {
+    console.log("=== GEMINI CEVABI ANALİZİ ===");
+    console.log("aiRecipe içeriği:", aiRecipe);
+    const testMatch = aiRecipe.match(/CO2[_ ]Tasarrufu:?\s*(\d+(\.\d+)?)/i);
+    console.log("Regex Sonucu:", testMatch);
+    
     try {
       const { data: { user } } = await supabase.auth.getUser();
       if (!user) return;
