@@ -77,7 +77,7 @@ export default function ProductAdd({ onLogout }) {
       if (!user) return;
 
       const extractedName = extractRecipeName(aiRecipe);
-      const co2Match = aiRecipe.match(/CO2_Tasarrufu:\s*(\d+(\.\d+)?)\s*kg/i);
+      const co2Match = aiRecipe.match(/(?:CO2[_ ]Tasarrufu|CO2 Tasarrufu):\s*(\d+(\.\d+)?)/i);
       const co2Value = co2Match ? co2Match[1] : "0.0";
       const dynamicNote = `🎉 ${co2Value} kg CO2 kurtardın!`;
       
