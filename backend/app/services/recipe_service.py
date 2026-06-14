@@ -38,6 +38,7 @@ async def generate_recipe_from_gemini(ingredients: list) -> str:
             "**Hazırlanışı:**\n"
             "1. [Adım 1]\n"
             "2. [Adım 2]\n\n"
+            "**Önemli:** Yukarıdaki açıklamaların hemen altına, bu tarifi uygulayarak yaklaşık kaç kg CO2 salınımını engellediğimizi 'CO2_Tasarrufu: X kg' şeklinde belirt.\n\n"
             "Kurallar:\n"
             "1. Kullanıcının kilerinde olmayan hiçbir majör malzemeyi tarife ekleme.\n"
             "2. Adım adım yapılışını kısa, net ve anlaşılır ver.\n\n"
