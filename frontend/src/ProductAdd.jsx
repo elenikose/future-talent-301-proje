@@ -77,8 +77,10 @@ export default function ProductAdd({ onLogout }) {
       if (!user) return;
 
       const extractedName = extractRecipeName(aiRecipe);
-      const dynamicNote = generateCo2Note(selectedProductIds.length);
-
+      const co2Match = aiRecipe.match(/CO2_Tasarrufu:\s*(\d+(\.\d+)?)\s*kg/i);
+      const co2Value = co2Match ? co2Match[1] : "0.0";
+      const dynamicNote = `🎉 ${co2Value} kg CO2 kurtardın!`;
+      
       const { error } = await supabase.from('user_recipes').insert([{
         user_id: user.id,
         recipe_name: extractedName,
