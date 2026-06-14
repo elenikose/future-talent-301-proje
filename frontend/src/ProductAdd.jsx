@@ -280,7 +280,9 @@ export default function ProductAdd({ onLogout }) {
                             style={{width: 'auto', margin: 0, padding: '0 15px', background: '#3b82f6'}} 
                             onClick={(e) => { 
                               e.preventDefault();
-                              if(instantIngredient.trim()) { setInstantList([...instantList, instantIngredient.trim()]); setInstantIngredient(''); } 
+                              if(instantIngredient.trim()) {
+                                setInstantList(prevList => [...prevList, instantIngredient.trim()]);
+                                setInstantIngredient(''); } 
                             }}
                           >
                             Ekle
