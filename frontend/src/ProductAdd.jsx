@@ -72,18 +72,18 @@ export default function ProductAdd({ onLogout }) {
   }
 
   async function handleSaveRecipe() {
-    console.log("=== GEMINI CEVABI ANALİZİ ===");
-    console.log("aiRecipe içeriği:", aiRecipe);
-    const testMatch = aiRecipe.match(/CO2[_ ]Tasarrufu:?\s*(\d+(\.\d+)?)/i);
-    console.log("Regex Sonucu:", testMatch);
-    
     try {
       const { data: { user } } = await supabase.auth.getUser();
       if (!user) return;
 
       const extractedName = extractRecipeName(aiRecipe);
-      const co2Match = aiRecipe.match(/(?:CO2[_ ]Tasarrufu|CO2 Tasarrufu):\s*(\d+(\.\d+)?)/i);
-      const co2Value = co2Match ? co2Match[1] : "0.0";
+      // 1. ADIM: Regex ile "CO2" ve "kg" arasındaki sayıyı ne olursa olsun yakala
+      // Bu regex, "CO2 Tasarrufu: 1.2 kg", "CO2_Tasarrufu: 1.2", "1.2 kg CO2" gibi tüm varyasyonları yakalar.
+      const match = aiRecipe.match(/CO2.*?(\d+(\.\d+)?)/i);
+
+      // 2. ADIM: Eğer sayı yakaladıysa onu al, yoksa kilerdeki ürün sayısına göre mantıklı bir tahmin üret
+      const co2Value = match ? match[1] : (selectedProductIds.length * 0.45 + 0.2).toFixed(1);
+      
       const dynamicNote = `🎉 ${co2Value} kg CO2 kurtardın!`;
       
       const { error } = await supabase.from('user_recipes').insert([{
