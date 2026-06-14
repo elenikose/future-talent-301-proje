@@ -83,8 +83,19 @@ export default function ProductAdd({ onLogout }) {
 
       // 2. ADIM: Eğer sayı yakaladıysa onu al, yoksa kilerdeki ürün sayısına göre mantıklı bir tahmin üret
       const co2Value = match ? match[1] : (selectedProductIds.length * 0.45 + 0.2).toFixed(1);
-      
-      const dynamicNote = `🎉 ${co2Value} kg CO2 kurtardın!`;
+      const funOptions = [
+         `🎉 ${co2Value} kg CO2 kurtardın! Harika bir başlangıç.`,
+         `🚀 ${co2Value} kg CO2 cepte! Gezegenimiz sana teşekkür ediyor.`,
+         `🌲 Harika! ${co2Value} kg CO2 tasarruf ederek doğaya büyük bir nefes aldırdın.`,
+         `💡 İnanılmaz! Bu küçük değişiklikle sürdürülebilir mutfağa büyük bir adım attın.`,
+         `🐢 Yavaş ama kararlı! ${co2Value} kg CO2 tasarrufu ile israfı azaltıyoruz.`,
+         `🍽️ Mutfakta israfı sıfırlıyoruz! ${co2Value} kg CO2 kurtardığın için tebrikler.`,
+         `🌍 Senin sayende dünya biraz daha hafifledi: ${co2Value} kg CO2 tasarruf edildi!`,
+         `✨ İsrafı önlemek hiç bu kadar keyifli olmamıştı! ${co2Value} kg CO2 doğada kaldı.`,
+         `🛡️ Mutfak kahramanı! ${co2Value} kg CO2 ile ekosistemi korumaya devam ediyorsun.`,
+         `🏆 Sürdürülebilirlik seviyeni artırdın! ${co2Value} kg CO2 tasarruf ile zirvedesin.`
+      ];
+      const dynamicNote = funOptions[Math.floor(Math.random() * funOptions.length)];
       
       const { error } = await supabase.from('user_recipes').insert([{
         user_id: user.id,
